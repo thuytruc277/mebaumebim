@@ -1,0 +1,236 @@
+@charset "utf-8";
+
+
+/* 1- TRANG CHÍNH */
+#wrap {min-height: 100vh; /* cao bằng chiều cao màn hình */
+display: flex; flex-direction: column;}
+
+#main {flex: 1; /* đẩy footer xuống đáy */
+  display: flex; flex-direction: column; justify-content: center; /* căn giữa theo chiều dọc */
+  align-items: center; /* căn giữa theo chiều ngang */}
+
+
+
+
+  :root {
+  --main-color: #FFF0F5;            /* nền */
+  --base-color: #7F1734;            /* chữ */
+  --heading-font: "Playwrite VN", sans-serif;
+}
+
+/* -----------------------------------------
+   NÚT ABOUT
+------------------------------------------ */
+.about-btn {position: fixed; top: 20px; left: 25px; color: #ffffff; font-family: var(--heading-font); font-weight: 600; font-size: 22px;
+  padding: 10px 16px; text-decoration: none; position: fixed;
+  box-shadow: 0 6px 18px rgba(127, 23, 52, 0.35); z-index: 9999; transition: all .3s ease;
+animation: aboutShake 3.5s infinite; /* Hiệu ứng lắc chu kỳ */
+  /* để tạo gạch dưới chạy */
+  position: fixed; overflow: hidden;}
+
+/* Gạch dưới chạy từ trái → phải */
+.about-btn::after {content: ""; position: absolute; left: -100%; bottom: 0;  width: 100%; height: 2px;
+  background: rgba(255, 255, 255, 0.8); /* gạch dưới trắng, opacity 0.8 */
+  animation: underlineMove 2s linear infinite;}
+
+/* Animation gạch dưới */
+@keyframes underlineMove {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+/* Hover */
+.about-btn:hover {transform: translateY(-3px); box-shadow: 0 10px 25px rgba(127, 23, 52, 0.45);}
+
+/* -----------------------------------------
+   ANIMATION: LẮC → NGHỈ → LẮC → NGHỈ
+------------------------------------------ */
+@keyframes aboutShake {
+  0%, 8% {
+    transform: rotate(0deg);
+  }
+  1% {
+    transform: rotate(7deg);
+  }
+  3% {
+    transform: rotate(-7deg);
+  }
+  5% {
+    transform: rotate(6deg);
+  }
+  7% {
+    transform: rotate(-6deg);
+  }
+
+  /* nghỉ lâu */
+  10%, 70% {
+    transform: rotate(0deg);
+  }
+
+  /* lắc lần 2 */
+  71% {
+    transform: rotate(7deg);
+  }
+  73% {
+    transform: rotate(-7deg);
+  }
+  75% {
+    transform: rotate(6deg);
+  }
+  77% {
+    transform: rotate(-6deg);
+  }
+
+  /* nghỉ */
+  80%, 100% {
+    transform: rotate(0deg);
+  }
+}
+
+
+/* -----------------------------------------
+   RESPONSIVE
+------------------------------------------ */
+@media (max-width: 1400px) {
+  .about-btn {font-size: 19px; padding: 9px 15px; top: 18px; left: 20px;}
+}
+@media (max-width: 1360px) {
+  .about-btn { font-size: 17px;   padding: 8px 14px; top: 5px; left: 5px;}
+}
+@media (max-width: 768px) {
+  .about-btn {font-size: 16px; padding: 7px 13px; top: 10px; left: 10px;}
+}
+
+
+
+
+
+
+
+
+
+
+
+.box1 .inner,
+.box2 .inner {position: relative; overflow: hidden; width: 1100px; background: #fff; border-radius: 30px; padding: 80px; margin-top: 50px; box-shadow: 0 0 18px rgba(255, 200, 255, 0.6);}
+.box3 .inner {position: relative; overflow: hidden; width: 1100px; background: #fff; border-radius: 30px; padding: 80px; margin-top: 50px; margin-bottom: 50px; box-shadow: 0 0 18px rgba(255, 200, 255, 0.6);}
+
+
+.inner h1 {color: var(--base-color); font-weight: 700; display: inline-block; position: relative;
+  transition: color .4s ease; background: none; line-height: 2.5; padding-top: 2px;}
+.inner h1::after {content: ""; position: absolute; left: 0; bottom: -4px; width: 0; height: 2px;
+    background: linear-gradient(90deg, #F44369, #3E3B92); transition: width .4s ease;}
+.inner h1:hover {background: linear-gradient(90deg, #F44369, #3E3B92);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;}
+.inner h1:hover::after {width: 100%;}
+
+
+
+.box1 .inner .icon1,
+.box2 .inner .icon2,
+.box3 .inner .icon3 {position: absolute; top: 50%; transform: translateY(-50%); width: 150px; opacity: 0; 
+  animation: runAcross 1.5s ease-out forwards,
+             wiggle 1.2s ease-in-out infinite;
+  animation-delay: 0s, 1.5s;}
+
+
+/* chạy ngang */
+@keyframes runAcross {
+  0% {
+    right: -150px;
+    opacity: 1;
+  }
+  100% {
+    right: 50px;
+    opacity: 1;
+  }
+}
+
+/* lắc nhẹ */
+@keyframes wiggle {
+  0%, 100% {
+    transform: translateY(-50%) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-50%) rotate(-6deg);
+  }
+}
+
+@media (max-width: 1200px) {
+.box1 .inner,
+.box2 .inner,
+.box3 .inner {width: 850px;}
+}
+
+@media (max-width: 768px) {
+
+.inner h1 {font-weight: 500; font-size: 1.6rem;}
+
+.box1 .inner {width: 350px; padding: 50px 20px; margin: 80px 20px 0;}
+.box2 .inner {width: 350px; padding: 50px 20px; margin: 30px 20px 0;}
+.box3 .inner {width: 350px; padding: 50px 20px; margin: 30px 20px 80px;}
+
+.box1 .inner .icon1,
+.box2 .inner .icon2,
+.box3 .inner .icon3 {width: 70px;}
+
+@keyframes runAcross {
+  0% {
+    right: -100px;
+    opacity: 1;
+  }
+  100% {
+    right: 10px;
+    opacity: 1;
+  }
+}
+}
+
+
+
+.bg-icons {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.bg-i {
+  position: absolute;
+  opacity: 0.3; /* độ mờ chung - có thể chỉnh từng cái */
+  width: 4vw; /* TỰ CO THEO MÀN HÌNH */
+}
+
+/* Tùy chỉnh từng icon theo vị trí */
+.i1 { top: 15%; left: 5%; width: 5vw; opacity: 0.2; transform: rotate(10deg);}
+.i2 { top: 30%; left: 1%; width: 4vw; opacity: 0.25; transform: rotate(-20deg); }
+.i3 { top: 50%; left: 4%; width: 3vw; opacity: 0.1.5; transform: rotate(-8deg);}
+.i5 {top: 80%; left: 2%; width: 5vw; opacity: 0.2; }
+.i4 { top: 30%; right: 2%; width: 3vw; opacity: 0.15; transform: rotate(20deg);}
+.i6 { top: 5%; right: 1%; width: 4vw; opacity: 0.3; transform: rotate(-10deg);}
+.i7 { top: 55%; right: 1%; width: 5vw; opacity: 0.35; }
+.i8 { top: 80%; right: 3.5%; width: 3vw; opacity: 0.2; transform: rotate(25deg);}
+.i7 { top: 55%; right: 1%; width: 5vw; opacity: 0.35; }
+.i8 { top: 80%; right: 3.5%; width: 3vw; opacity: 0.2; transform: rotate(25deg);}
+
+.i10 { top: 5%; right: 35%; width: 2vw; opacity: 0.35; transform: rotate(20deg);}
+.i11 { top: 9%; right: 65%; width: 5vw; opacity: 0.2; transform: rotate(-25deg);}
+
+/* Nếu muốn khi mobile icon nhỏ hơn nữa */
+@media (max-width: 600px) {
+  .bg-i {
+    width: 10vw;
+    opacity: 0.2;
+  }
+}
+
+
+
+

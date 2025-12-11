@@ -1,0 +1,48 @@
+@charset "utf-8";
+
+:root {
+--main-font: "Be Vietnam Pro", sans-serif;  /* body */
+--heading-font: "Playwrite VN", sans-serif;                    /* heading */
+--main-color: #FFF0F5;
+--sub-color: #EEE7DC;
+--base-color: #7F1734;
+--brand-secondary-color: #FCF6F5;
+}
+
+
+/* set up cơ bản cho main */
+body {font-family: var(--main-font); background: var(--base-color); font-size: 1.6rem; line-height: 1.5; color: #000; overflow-x: hidden; }
+h1, h2, h3, h4, h5, h6 {font-family: var(--heading-font);}
+.inner {max-width: 1280px; margin: 0 auto; padding: 0 20px;}
+
+
+/* HEADER */
+/*#header {position: sticky; background: var(--base-color); left: 0; top: 0; width: 100%; transition: all 0.5s; z-index: 99;} */
+
+
+body {
+  -webkit-user-select: none; /* Safari/Chrome */
+  -moz-user-select: none;    /* Firefox */
+  -ms-user-select: none;     /* IE/Edge */
+  user-select: none;         /* Chuẩn */
+}
+
+/* footer */
+#footer {background: var(--main-color);}
+#footer .inner {max-width: 100%; text-align: center; padding: 20px 0;}
+#footer .copy {color: rgba(127,23,52,0.7); text-align: center; background: var(--main-color); font-style: italic;}
+
+@media (max-width: 768px) {
+  #footer .inner {padding: 10px 0;}
+  #footer .copy {font-size: 1.1rem;}
+}
+
+.gotop {position: fixed; right: 20px; bottom: 10px; width: 50px; height: 50px; transition: all 0.5s; z-index: 999;}
+.gotop img {display: block; width: 80%;}
+@media (max-width: 768px) {
+  .gotop {right: 10px; bottom: 10px;}
+}
+
+
+
+
